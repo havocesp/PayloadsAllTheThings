@@ -23,7 +23,6 @@
 	b.php?c=ls
 	Source: http://www.virtualabs.fr/Nasty-bulletproof-Jpegs-l
 """
-from __future__ import print_function
 
 from future import standard_library
 standard_library.install_aliases()

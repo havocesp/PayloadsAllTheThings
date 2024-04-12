@@ -1,5 +1,4 @@
 #!/usr/bin/python
-from __future__ import print_function
 import socket,ssl
 from BaseHTTPServer import BaseHTTPRequestHandler,HTTPServer
 from websocket import create_connection, WebSocket

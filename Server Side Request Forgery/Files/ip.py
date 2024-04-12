@@ -1,7 +1,6 @@
 #!/usr/bin/python
 # coding=utf-8
 # https://raw.githubusercontent.com/cujanovic/SSRF-Testing/master/ip.py
-from __future__ import print_function
 from builtins import oct
 from builtins import str
 from builtins import hex

@@ -55,6 +55,6 @@ r = requests.get(url, params={
     "0": command,
     "action": "include",
     "file": final_payload
-})
+}, timeout=60)
 
 print(r.text)

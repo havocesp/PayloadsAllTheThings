@@ -13,7 +13,7 @@ import string
 import os
 import sys
 import platform
-import random
+import secrets
 
 EnclosedAlphanumericsData = {
 	'0' : ['⓪'],
@@ -90,7 +90,7 @@ def validIP(address):
 def plain2EnclosedAlphanumericsChar(s0):
 	if s0 not in EnclosedAlphanumericsData:
 		raise Exception('value not found')
-	return random.choice(EnclosedAlphanumericsData[s0])
+	return secrets.choice(EnclosedAlphanumericsData[s0])
 
 def convertIP2EnclosedAlphanumericsValue():
 	IPAddressParts4EnclosedAlphanumerics = arg1.split(".")
@@ -113,7 +113,7 @@ def convertIP2EnclosedAlphanumericsValue():
 
 def convert(s, recurse_chunks=True, error_on_miss=False):
 		if s in EnclosedAlphanumericsData:
-			return random.choice(EnclosedAlphanumericsData[s])
+			return secrets.choice(EnclosedAlphanumericsData[s])
 		if recurse_chunks and len(s) > 1:
 			return convert(s[:-1]) + convert(s[-1])
 		if error_on_miss:

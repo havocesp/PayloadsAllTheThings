@@ -92,17 +92,17 @@ try {
     return page
 
 if len(sys.argv) > 1:
-    js_file = open(sys.argv[1], 'r')
+    with open(sys.argv[1], 'r') as js_file:
 
-    fields = []
-    for line in js_file:
-        if not line.startswith('/// '): break
-        pieces = line.split()
-        params = [pieces[1]] + [float(token) for token in pieces[2:]]
-        fields.append(make_field(*params))
+        fields = []
+        for line in js_file:
+            if not line.startswith('/// '): break
+            pieces = line.split()
+            params = [pieces[1]] + [float(token) for token in pieces[2:]]
+            fields.append(make_field(*params))
 
-    js_file.seek(0)
+        js_file.seek(0)
 
-    out = PdfWriter()
-    out.addpage(make_page(fields, js_file.read()))
+        out = PdfWriter()
+        out.addpage(make_page(fields, js_file.read()))
     out.write('result.pdf')

@@ -26,12 +26,13 @@
 from __future__ import print_function
 
 from future import standard_library
+import secrets
+
 standard_library.install_aliases()
 from builtins import range
 import struct,sys,os
 import gd
 from io import StringIO
-from random import randint,shuffle
 from time import time
 
 # image width/height (square)
@@ -87,9 +88,9 @@ if __name__=='__main__':
 				# we create a palette
 				pal = []
 				for i in range(N*N):
-					pal.append(img.colorAllocate((randint(0,256),randint(0,256),randint(0,256))))
+					pal.append(img.colorAllocate((secrets.SystemRandom().randint(0,256),secrets.SystemRandom().randint(0,256),secrets.SystemRandom().randint(0,256))))
 				# we shuffle this palette
-				shuffle(pal)
+				secrets.SystemRandom().shuffle(pal)
 				# and fill the image with it			
 				pidx = 0
 				for x in  range(N):

